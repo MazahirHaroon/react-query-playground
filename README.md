@@ -62,6 +62,7 @@ http://localhost:5173/
 - `@components`: Components Directory
 - `@api`: API Directory
 - `@interfaces`: TS Interfaces Directory
+- `@constants`: Constants Directory
 
 ---
 

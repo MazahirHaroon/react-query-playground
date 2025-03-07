@@ -6,6 +6,7 @@
       "@components/*": ["./src/components/*"],
       "@api/*": ["./src/api/*"],
       "@interfaces/*": ["./src/interfaces/*"],
+      "@constants/*": ["./src/constants/*"],
     },
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "target": "ES2020",
