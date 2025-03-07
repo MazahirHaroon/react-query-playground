@@ -3,6 +3,7 @@ import { POST_URL } from '@constants/post';
 
 export const fetchPost = async (query = {}): Promise<PostData[]> => {
   try {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
     const response = await fetch(`${POST_URL}?${query}`);
     if (!response.ok) {
       throw new Error('Something went wrong!');
