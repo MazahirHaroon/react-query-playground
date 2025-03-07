@@ -1,6 +1,12 @@
+import { useState } from 'react';
+import { SearchKeyWord } from '@interfaces/post';
 import './index.css';
 
 const Post = () => {
+  const [searchKeyword, setSearchKeyword] = useState<SearchKeyWord>({
+    userId: '',
+  });
+
   return (
     <div className='home-container'>
       <div className='content'>
@@ -15,6 +21,8 @@ const Post = () => {
               className='input-field'
               type='number'
               placeholder='Enter User ID'
+              value={searchKeyword.userId}
+              onChange={(e) => setSearchKeyword({ userId: e.target.value })}
             />
           </div>
           <div className='input-container'>

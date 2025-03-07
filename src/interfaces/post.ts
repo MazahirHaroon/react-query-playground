@@ -4,3 +4,7 @@ export interface PostData {
   title: string;
   body: string;
 }
+
+export interface SearchKeyWord {
+  userId: string;
+}
