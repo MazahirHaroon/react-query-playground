@@ -19,7 +19,7 @@ It is designed for **personal reference and for anyone looking to quickly set up
 
 ---
 
-## **🛠 Tech Stack**
+## **Tech Stack**
 
 - **React 19**
 - **React Query**
@@ -67,12 +67,12 @@ http://localhost:5173/
 
 ---
 
-### **📜 License**
+### **License**
 
 This project is licensed under the **MIT License** – feel free to use, modify, and experiment with it.
 
 ---
 
-#### **👨‍💻 Contributions**
+#### **Contributions**
 
 If you find this useful or want to add improvements, feel free to submit a **PR** or raise an **issue**.
