@@ -10,7 +10,7 @@ export default defineConfig({
       '@api': '/src/api',
       '@interfaces': '/src/interfaces',
       '@constants': '/src/constants',
-      '@components': '/src/components',
+      '@pages': '/src/pages',
     },
   },
 });
