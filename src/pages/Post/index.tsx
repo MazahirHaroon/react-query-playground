@@ -52,7 +52,7 @@ const Post = () => {
         <h2 className='home-secondary-title'>Posts</h2>
         <div className='post-list'>
           {isPending ? (
-            <h2 className='home-tertiary-title'>Loading...!</h2>
+            <h2 className='home-tertiary-title'>Loading...</h2>
           ) : (
             posts?.map((post) => (
               <div className='post-item'>
