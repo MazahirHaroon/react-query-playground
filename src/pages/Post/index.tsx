@@ -13,7 +13,7 @@ const Post = () => {
   });
 
   const { isPending, data: posts } = useQuery({
-    queryKey: [['posts']],
+    queryKey: ['posts'],
     queryFn: () => fetchPost(),
   });
 
@@ -55,7 +55,7 @@ const Post = () => {
             <h2 className='home-tertiary-title'>Loading...</h2>
           ) : (
             posts?.map((post) => (
-              <div className='post-item'>
+              <div key={post.id} className='post-item'>
                 <h3>{post.title}</h3>
                 <p>
                   <strong>ID:</strong> {post.id}
