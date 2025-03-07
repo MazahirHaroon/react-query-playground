@@ -22,7 +22,12 @@
     font-size: var(--primary-heading-font-size);
 }
 
-.home-subtitle {
+.home-secondary-title {
+    text-align: center;
+    font-size: var(--secondary-heading-font-size);
+}
+
+.home-tertiary-title {
     text-align: center;
     font-size: var(--tertiary-heading-font-size);
 }

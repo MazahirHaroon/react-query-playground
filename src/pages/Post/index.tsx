@@ -11,7 +11,9 @@ const Post = () => {
     <div className='home-container'>
       <div className='content'>
         <h1 className='home-title'>Post Management</h1>
-        <p className='home-subtitle'>Manage and search posts efficiently</p>
+        <p className='home-tertiary-title'>
+          Manage and search posts efficiently
+        </p>
         <div className='form-container'>
           <div className='input-container'>
             <label className='label' htmlFor='search'>
@@ -38,6 +40,7 @@ const Post = () => {
           <button className='primary-button'>Add Post</button>
         </div>
         <div className='post-list'>
+          <h2 className='home-secondary-title'>Posts</h2>
           <div className='post-item'>
             <h3>{'Post Title'}</h3>
             <p>
