@@ -1,11 +1,7 @@
-import './App.css'
+import Post from 'src/pages/Post';
 
 function App() {
-
-
-  return (
-    <></>
-  )
+  return <Post />;
 }
 
-export default App
+export default App;
