@@ -57,6 +57,12 @@ http://localhost:5173/
 
 ---
 
+### Path Aliases
+
+- `@components`: Components Directory
+- `@api`: API Directory
+- `@interfaces`: TS Interfaces Directory
+
 ---
 
 ## External Docs
