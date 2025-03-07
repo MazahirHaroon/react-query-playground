@@ -1,10 +1,13 @@
-import { PostData } from '@interfaces/post';
+import { filterQuery } from '@utils';
+import { PostData, SearchKeyWord } from '@interfaces/post';
 import { POST_URL } from '@constants/post';
 
-export const fetchPost = async (query = {}): Promise<PostData[]> => {
+export const fetchPost = async (query: SearchKeyWord): Promise<PostData[]> => {
   try {
+    const filteredQuery = filterQuery(query);
+    const searchParams = new URLSearchParams(filteredQuery).toString();
     await new Promise((resolve) => setTimeout(resolve, 1000));
-    const response = await fetch(`${POST_URL}?${query}`);
+    const response = await fetch(`${POST_URL}?${searchParams}`);
     if (!response.ok) {
       throw new Error('Something went wrong!');
     }
