@@ -90,6 +90,9 @@ primary-button:disabled {
 .post-list {
     display: flex;
     flex-direction: column;
+    height: 50vh;
+    overflow: scroll;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     gap: 1em;
     padding: 1em;
 }
