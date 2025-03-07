@@ -13,8 +13,8 @@ const Post = () => {
   });
 
   const { isPending, data: posts } = useQuery({
-    queryKey: ['posts'],
-    queryFn: () => fetchPost(),
+    queryKey: ['posts', { searchKeyword }],
+    queryFn: () => fetchPost(searchKeyword),
   });
 
   return (
