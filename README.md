@@ -1,4 +1,4 @@
-### React Query Playground with JSONPlaceholder API
+# React Query Playground with JSONPlaceholder API
 
 #### Overview
 
