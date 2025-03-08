@@ -3,7 +3,11 @@ import { useQuery } from '@tanstack/react-query';
 
 import { fetchPost } from '@api/post';
 
-import { SearchKeyWord } from '@interfaces/post';
+import { SearchKeyWord, PostData } from '@interfaces/post';
+
+import { USER_ID } from '@constants/post';
+
+import { getPostID } from '@utils';
 
 import './index.css';
 
@@ -11,6 +15,19 @@ const Post = () => {
   const [searchKeyword, setSearchKeyword] = useState<SearchKeyWord>({
     userId: '',
   });
+  const [newPost, setNewPost] = useState<PostData>({
+    userId: USER_ID,
+    id: getPostID(),
+    title: '',
+    body: '',
+  });
+
+  const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setNewPost({
+      ...newPost,
+      [event.target.name]: event.target.value,
+    });
+  };
 
   const { isPending, data: posts } = useQuery({
     queryKey: ['posts', { searchKeyword }],
@@ -34,20 +51,38 @@ const Post = () => {
               type='number'
               placeholder='Enter User ID'
               value={searchKeyword.userId}
+              name='search'
               onChange={(e) => setSearchKeyword({ userId: e.target.value })}
             />
           </div>
-          <div className='input-container'>
-            <label className='label' htmlFor='search'>
-              Add Post
-            </label>
-            <input
-              className='input-field'
-              type='text'
-              placeholder='Enter Post Title'
-            />
-          </div>
-          <button className='primary-button'>Add Post</button>
+          <h2 className='home-secondary-title'>Add New Post</h2>
+          <form className='form-container'>
+            <div className='input-container'>
+              <label className='label' htmlFor='search'>
+                Enter Title
+              </label>
+              <input
+                className='input-field'
+                type='text'
+                placeholder='Enter Post Title'
+                name='title'
+                onChange={handleInput}
+              />
+            </div>
+            <div className='input-container'>
+              <label className='label' htmlFor='search'>
+                Enter Body
+              </label>
+              <input
+                className='input-field'
+                type='text'
+                name='body'
+                placeholder='Enter Post Body'
+                onChange={handleInput}
+              />
+            </div>
+            <button className='primary-button'>Add Post</button>
+          </form>
         </div>
         <h2 className='home-secondary-title'>Posts</h2>
         <div className='post-list'>
