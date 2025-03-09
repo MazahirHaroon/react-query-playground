@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 
-import { fetchPost } from '@api/post';
+import { addPost, fetchPost } from '@api/post';
 
 import { SearchKeyWord, PostData } from '@interfaces/post';
 
@@ -32,6 +32,10 @@ const Post = () => {
   const { isPending, data: posts } = useQuery({
     queryKey: ['posts', { searchKeyword }],
     queryFn: () => fetchPost(searchKeyword),
+  });
+
+  const { mutateAsync: addPostMutation } = useMutation({
+    mutationFn: () => addPost(newPost),
   });
 
   return (
@@ -82,7 +86,15 @@ const Post = () => {
               onChange={handleInput}
             />
           </div>
-          <button className='primary-button'>Add Post</button>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              addPostMutation();
+            }}
+            className='primary-button'
+          >
+            Add Post
+          </button>
         </form>
       </div>
       <div className='content'>
