@@ -5,12 +5,7 @@ import { OptionsPropsType } from '@interfaces/post';
 import './index.css';
 import { CustomInput, PrimaryButton } from 'src/components/Form';
 
-const Options = ({
-  searchKeyword,
-  setSearchKeyword,
-  newPost,
-  setNewPost,
-}: OptionsPropsType) => {
+const Options = ({ newPost, setNewPost }: OptionsPropsType) => {
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setNewPost({
       ...newPost,
@@ -24,16 +19,6 @@ const Options = ({
     <div className='options'>
       <h1 className='home-title'>Post Management</h1>
       <p className='home-tertiary-title'>Manage and search posts efficiently</p>
-      <form className='form-container'>
-        <CustomInput
-          label={'Search'}
-          type='number'
-          placeholder='Enter User ID'
-          value={searchKeyword.userId}
-          name='search'
-          onChange={(e) => setSearchKeyword({ userId: e.target.value })}
-        />
-      </form>
       <form className='form-container'>
         <h2 className='home-secondary-title'>Add New Post</h2>
         <CustomInput

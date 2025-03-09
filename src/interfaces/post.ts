@@ -10,10 +10,9 @@ export interface SearchKeyWordType {
 export interface OptionsPropsType {
   newPost: PostDataType;
   setNewPost: (arg0: PostDataType) => void;
-  searchKeyword: SearchKeyWordType;
-  setSearchKeyword: (arg0: SearchKeyWordType) => void;
 }
 export interface ContentPropsType {
   newPost: PostDataType;
   searchKeyword: SearchKeyWordType;
+  setSearchKeyword: (arg0: SearchKeyWordType) => void;
 }

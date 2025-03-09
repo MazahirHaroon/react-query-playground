@@ -6,12 +6,18 @@ interface InputProps {
   value: string | undefined;
   label?: string;
   placeholder?: string;
-  style?: object;
+  customContainerStyle?: object;
+  customInputStyle?: object;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const CustomInput = ({ label, style, ...InputProps }: InputProps) => (
-  <div className='input-container' style={style}>
+const CustomInput = ({
+  label,
+  customInputStyle,
+  customContainerStyle,
+  ...InputProps
+}: InputProps) => (
+  <div className='input-container' style={customContainerStyle}>
     {label ? (
       <label className='label' htmlFor='search'>
         {label}
@@ -19,7 +25,7 @@ const CustomInput = ({ label, style, ...InputProps }: InputProps) => (
     ) : (
       ''
     )}
-    <input className='input-field' {...InputProps} />
+    <input className='input-field' {...InputProps} style={customInputStyle} />
   </div>
 );
 

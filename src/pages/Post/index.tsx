@@ -13,14 +13,18 @@ const Post = () => {
     userId: '',
   });
   return (
-    <div className='home-container'>
-      <Options
-        searchKeyword={searchKeyword}
-        setSearchKeyword={setSearchKeyword}
-        newPost={newPost}
-        setNewPost={setNewPost}
-      />
-      <Content newPost={newPost} searchKeyword={searchKeyword} />
+    <div className='container'>
+      <h1 className='home-title'>
+        React Query Playground with JSON Placeholder API
+      </h1>
+      <div className='home-container'>
+        <Options newPost={newPost} setNewPost={setNewPost} />
+        <Content
+          newPost={newPost}
+          searchKeyword={searchKeyword}
+          setSearchKeyword={setSearchKeyword}
+        />
+      </div>
     </div>
   );
 };

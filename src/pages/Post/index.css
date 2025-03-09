@@ -1,47 +1,75 @@
+.container {
+  margin: 1em;
+}
+
 .home-container {
-    display: flex;
-    justify-content: center;
-    background-color: var(--clr-primary-light);
-    min-height: 100vh;
-    border: 2px solid green;
-    align-items: center;
-    gap: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;  
+  gap: 0.5em;
 }
 
 .options {
-    display: flex;
-    flex-direction: column;
-    height: 75vh;
-    padding: 2em;
-    gap: 1em;
-    width: 40%;
-    min-width: 500px;
-    margin: 2em 0;
-    border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  height: 75vh;
+  gap: 1em;
+  flex: 1;
+  margin: 2em 0;
+  border-radius: 50px;
 }
 
+.content {
+    flex: 2;  
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 40%;
+    border-radius: 50px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin: 1em;
+    padding: 2em;
+    background-color: var(--clr-light-background);
+}
+
+.content-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 65vh;
+}
+
+
 .home-title {
-    text-align: center;
-    font-size: var(--primary-heading-font-size);
+  text-align: center;
+  font-size: var(--primary-heading-font-size);
 }
 
 .home-secondary-title {
-    text-align: center;
-    font-size: var(--secondary-heading-font-size);
+  text-align: center;
+  font-size: var(--secondary-heading-font-size);
 }
 
 .home-tertiary-title {
-    text-align: center;
-    font-size: var(--tertiary-heading-font-size);
+  text-align: center;
+  font-size: var(--tertiary-heading-font-size);
 }
 
 .form-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: var(--clr-light-background);
-    margin: 0 auto;
-    padding: 1em;
-    width: 75%;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--clr-light-background);
+  margin: 0 auto;
+  padding: 1em;
+  width: 75%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2em;
 }
