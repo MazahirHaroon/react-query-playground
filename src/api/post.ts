@@ -1,8 +1,11 @@
-import { filterQuery } from '@utils';
+import { filterQuery, isEmpty } from '@utils';
 import { PostData, SearchKeyWord } from '@interfaces/post';
 import { POST_URL } from '@constants/post';
 
-export const fetchPost = async (query: SearchKeyWord): Promise<PostData[]> => {
+export const fetchPost = async (
+  query: SearchKeyWord,
+  newPost: PostData | object = {}
+): Promise<PostData[] | object> => {
   try {
     const filteredQuery = filterQuery(query);
     const searchParams = new URLSearchParams(filteredQuery).toString();
@@ -11,7 +14,9 @@ export const fetchPost = async (query: SearchKeyWord): Promise<PostData[]> => {
     if (!response.ok) {
       throw new Error('Something went wrong!');
     }
-    return (await response.json()) as PostData[];
+    return isEmpty(newPost)
+      ? ((await response.json()) as PostData[])
+      : [newPost, ...((await response.json()) as PostData[])];
   } catch (error) {
     console.error('Something went wrong!', error);
     return [];
