@@ -1,6 +1,6 @@
-import { filterQuery, isEmpty } from '@utils';
+import { filterQuery, isEmpty, getPostID } from '@utils';
 import { PostData, SearchKeyWord } from '@interfaces/post';
-import { POST_URL } from '@constants/post';
+import { POST_URL, USER_ID } from '@constants/post';
 
 export const fetchPost = async (
   query: SearchKeyWord,
@@ -23,11 +23,18 @@ export const fetchPost = async (
   }
 };
 
-export const addPost = async (post: PostData): Promise<void> => {
+export const addPost = async (post: PostData | object): Promise<void> => {
   try {
+    const newPost = {
+      userId: USER_ID,
+      id: getPostID(),
+      title: 'Newly Added Title',
+      body: 'This is newly added content body',
+      ...post,
+    };
     const response = await fetch(POST_URL, {
       method: 'POST',
-      body: JSON.stringify(post),
+      body: JSON.stringify(newPost),
     });
     if (!response.ok) {
       throw new Error('Something went wrong');
