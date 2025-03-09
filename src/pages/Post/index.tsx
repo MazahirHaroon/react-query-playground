@@ -1,126 +1,26 @@
 import { useState } from 'react';
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
-import { addPost, fetchPost } from '@api/post';
+import Options from './options';
+import Content from './content';
 
-import { SearchKeyWord, PostData } from '@interfaces/post';
+import { SearchKeyWordType, PostDataType } from '@interfaces/post';
 
 import './index.css';
 
 const Post = () => {
-  const queryClient = useQueryClient();
-
-  const [searchKeyword, setSearchKeyword] = useState<SearchKeyWord>({
+  const [newPost, setNewPost] = useState<PostDataType | object>({});
+  const [searchKeyword, setSearchKeyword] = useState<SearchKeyWordType>({
     userId: '',
   });
-  const [newPost, setNewPost] = useState<PostData | object>({});
-
-  const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setNewPost({
-      ...newPost,
-      [event.target.name]: event.target.value,
-    });
-  };
-
-  const { isPending, data: posts } = useQuery({
-    queryKey: ['posts', { searchKeyword }],
-    queryFn: () => fetchPost(searchKeyword, newPost),
-    /* 
-    newPost is passed above to append the data in the returned API. 
-    In a scenario where post works, this is not needed.
-    */
-  });
-
-  const { mutateAsync: addPostMutation } = useMutation({
-    mutationFn: () => addPost(newPost),
-    onSuccess: () => {
-      queryClient.invalidateQueries(['posts']);
-    },
-  });
-
   return (
     <div className='home-container'>
-      <div className='options'>
-        <h1 className='home-title'>Post Management</h1>
-        <p className='home-tertiary-title'>
-          Manage and search posts efficiently
-        </p>
-        <form className='form-container'>
-          <div className='input-container'>
-            <label className='label' htmlFor='search'>
-              Search
-            </label>
-            <input
-              className='input-field'
-              type='number'
-              placeholder='Enter User ID'
-              value={searchKeyword.userId}
-              name='search'
-              onChange={(e) => setSearchKeyword({ userId: e.target.value })}
-            />
-          </div>
-        </form>
-        <form className='form-container'>
-          <h2>Add New Post</h2>
-          <div className='input-container'>
-            <label className='label' htmlFor='search'>
-              Enter Title
-            </label>
-            <input
-              className='input-field'
-              type='text'
-              placeholder='Enter Post Title'
-              name='title'
-              onChange={handleInput}
-            />
-          </div>
-          <div className='input-container'>
-            <label className='label' htmlFor='search'>
-              Enter Body
-            </label>
-            <input
-              className='input-field'
-              type='text'
-              name='body'
-              placeholder='Enter Post Body'
-              onChange={handleInput}
-            />
-          </div>
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              addPostMutation();
-            }}
-            className='primary-button'
-          >
-            Add Post
-          </button>
-        </form>
-      </div>
-      <div className='content'>
-        <h2 className='home-secondary-title'>Posts</h2>
-        <div className='post-list'>
-          {isPending ? (
-            <div className='loading-container'>
-              <h2>Loading...</h2>
-            </div>
-          ) : (
-            posts?.map((post) => (
-              <div key={post.id} className='post-item'>
-                <p className='post-ids'>
-                  <strong>ID:</strong> {post.id}
-                </p>
-                <p className='post-ids'>
-                  <strong>User ID:</strong> {post.userId}
-                </p>
-                <h3>{post.title}</h3>
-                <p>{post.body}</p>
-                <hr />
-              </div>
-            ))
-          )}
-        </div>
-      </div>
+      <Options
+        searchKeyword={searchKeyword}
+        setSearchKeyword={setSearchKeyword}
+        newPost={newPost}
+        setNewPost={setNewPost}
+      />
+      <Content newPost={newPost} searchKeyword={searchKeyword} />
     </div>
   );
 };
