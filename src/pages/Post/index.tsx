@@ -1,26 +1,19 @@
 import { useState } from 'react';
-import { useMutation, useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
 import { addPost, fetchPost } from '@api/post';
 
 import { SearchKeyWord, PostData } from '@interfaces/post';
 
-import { USER_ID } from '@constants/post';
-
-import { getPostID } from '@utils';
-
 import './index.css';
 
 const Post = () => {
+  const queryClient = useQueryClient();
+
   const [searchKeyword, setSearchKeyword] = useState<SearchKeyWord>({
     userId: '',
   });
-  const [newPost, setNewPost] = useState<PostData>({
-    userId: USER_ID,
-    id: getPostID(),
-    title: '',
-    body: '',
-  });
+  const [newPost, setNewPost] = useState<PostData | object>({});
 
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setNewPost({
@@ -31,11 +24,18 @@ const Post = () => {
 
   const { isPending, data: posts } = useQuery({
     queryKey: ['posts', { searchKeyword }],
-    queryFn: () => fetchPost(searchKeyword),
+    queryFn: () => fetchPost(searchKeyword, newPost),
+    /* 
+    newPost is passed above to append the data in the returned API. 
+    In a scenario where post works, this is not needed.
+    */
   });
 
   const { mutateAsync: addPostMutation } = useMutation({
     mutationFn: () => addPost(newPost),
+    onSuccess: () => {
+      queryClient.invalidateQueries(['posts']);
+    },
   });
 
   return (
