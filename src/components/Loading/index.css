@@ -1,0 +1,12 @@
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+.loading-container > h2 {
+    padding: 1em;
+}

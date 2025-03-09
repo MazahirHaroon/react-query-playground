@@ -1,0 +1,22 @@
+.list {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    height: 75vh;
+    scroll-behavior: smooth;
+    padding: 1em;
+}
+
+.item {
+    padding: 1em;
+}
+
+.item > * {
+    margin-bottom: 0.5em;;
+}
+
+.ids {
+    display: inline-block;
+    margin-right: 1em;
+    margin-bottom: 0.1em;
+}

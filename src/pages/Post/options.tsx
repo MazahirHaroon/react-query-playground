@@ -3,6 +3,7 @@ import { usePostDataMutate } from 'src/hooks/usePostData';
 import { OptionsPropsType } from '@interfaces/post';
 
 import './index.css';
+import { CustomInput, PrimaryButton } from 'src/components/Form';
 
 const Options = ({
   searchKeyword,
@@ -24,55 +25,40 @@ const Options = ({
       <h1 className='home-title'>Post Management</h1>
       <p className='home-tertiary-title'>Manage and search posts efficiently</p>
       <form className='form-container'>
-        <div className='input-container'>
-          <label className='label' htmlFor='search'>
-            Search
-          </label>
-          <input
-            className='input-field'
-            type='number'
-            placeholder='Enter User ID'
-            value={searchKeyword.userId}
-            name='search'
-            onChange={(e) => setSearchKeyword({ userId: e.target.value })}
-          />
-        </div>
+        <CustomInput
+          label={'Search'}
+          type='number'
+          placeholder='Enter User ID'
+          value={searchKeyword.userId}
+          name='search'
+          onChange={(e) => setSearchKeyword({ userId: e.target.value })}
+        />
       </form>
       <form className='form-container'>
-        <h2>Add New Post</h2>
-        <div className='input-container'>
-          <label className='label' htmlFor='search'>
-            Enter Title
-          </label>
-          <input
-            className='input-field'
-            type='text'
-            placeholder='Enter Post Title'
-            name='title'
-            onChange={handleInput}
-          />
-        </div>
-        <div className='input-container'>
-          <label className='label' htmlFor='search'>
-            Enter Body
-          </label>
-          <input
-            className='input-field'
-            type='text'
-            name='body'
-            placeholder='Enter Post Body'
-            onChange={handleInput}
-          />
-        </div>
-        <button
+        <h2 className='home-secondary-title'>Add New Post</h2>
+        <CustomInput
+          label={'Enter Title'}
+          type='text'
+          placeholder='Enter Post Title'
+          name='title'
+          value={newPost?.title}
+          onChange={handleInput}
+        />
+        <CustomInput
+          label={'Enter Body'}
+          type='text'
+          placeholder='Enter Post Body'
+          name='body'
+          value={newPost?.body}
+          onChange={handleInput}
+        />
+        <PrimaryButton
+          content={'Add Post'}
           onClick={(e) => {
             e.preventDefault();
             addPostMutation();
           }}
-          className='primary-button'
-        >
-          Add Post
-        </button>
+        />
       </form>
     </div>
   );
