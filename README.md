@@ -28,6 +28,15 @@ It is designed for **personal reference and for anyone looking to quickly set up
 
 ---
 
+## Screenshots
+
+<img width="1792" alt="image" src="https://github.com/user-attachments/assets/fe1080f6-2827-4ed5-aa3b-20cdf2a0afc0" />
+
+<img width="1249" alt="image" src="https://github.com/user-attachments/assets/801bbcb3-dd8d-42b6-92cc-8250c607ce9b" />
+
+
+---
+
 ## Installation & Setup
 
 1. **Clone the repository:**
