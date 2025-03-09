@@ -7,7 +7,7 @@ export interface PostDataType {
 export interface SearchKeyWordType {
   userId: string;
 }
-export interface OptionPropsType {
+export interface OptionsPropsType {
   newPost: PostDataType;
   setNewPost: (arg0: PostDataType) => void;
   searchKeyword: SearchKeyWordType;

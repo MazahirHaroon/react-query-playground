@@ -1,6 +1,6 @@
 import { usePostDataMutate } from 'src/hooks/usePostData';
 
-import { OptionPropsType } from '@interfaces/post';
+import { OptionsPropsType } from '@interfaces/post';
 
 import './index.css';
 
@@ -9,7 +9,7 @@ const Options = ({
   setSearchKeyword,
   newPost,
   setNewPost,
-}: OptionPropsType) => {
+}: OptionsPropsType) => {
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setNewPost({
       ...newPost,
