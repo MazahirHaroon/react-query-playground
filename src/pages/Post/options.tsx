@@ -1,9 +1,10 @@
-import { usePostDataMutate } from 'src/hooks/usePostData';
+import { CustomInput, PrimaryButton } from '@form-components';
+
+import { usePostDataMutate } from '@hooks/usePostData';
 
 import { OptionsPropsType } from '@interfaces/post';
 
 import './index.css';
-import { CustomInput, PrimaryButton } from 'src/components/Form';
 
 const Options = ({ newPost, setNewPost }: OptionsPropsType) => {
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {

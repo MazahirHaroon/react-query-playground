@@ -1,8 +1,8 @@
 import { usePostData } from 'src/hooks/usePostData';
 
-import { List as PostList, Item as PostItem } from '../../components/Post';
-import { Loading } from '../../components';
-import { CustomInput } from 'src/components/Form';
+import { CustomInput } from '@form-components';
+import { List as PostList, Item as PostItem } from '@post-components';
+import { Loading } from '@components';
 
 import { ContentPropsType } from '@interfaces/post';
 

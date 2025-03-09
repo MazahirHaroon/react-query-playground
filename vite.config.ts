@@ -12,6 +12,10 @@ export default defineConfig({
       '@constants': '/src/constants',
       '@utils': '/src/utils',
       '@pages': '/src/pages',
+      '@hooks': '/src/hooks',
+      '@form-components': '/src/components/Form',
+      '@post-components': '/src/components/Post',
+      '@components': '/src/components',
     },
   },
 });
