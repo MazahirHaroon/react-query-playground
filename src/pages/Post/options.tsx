@@ -27,7 +27,7 @@ const Options = ({ newPost, setNewPost }: OptionsPropsType) => {
           type='text'
           placeholder='Enter Post Title'
           name='title'
-          value={newPost?.title}
+          value={newPost?.title || ''}
           onChange={handleInput}
         />
         <CustomInput
@@ -35,14 +35,15 @@ const Options = ({ newPost, setNewPost }: OptionsPropsType) => {
           type='text'
           placeholder='Enter Post Body'
           name='body'
-          value={newPost?.body}
+          value={newPost?.body || ''}
           onChange={handleInput}
         />
         <PrimaryButton
           content={'Add Post'}
-          onClick={(e) => {
+          onClick={async (e) => {
             e.preventDefault();
-            addPostMutation();
+            await addPostMutation();
+            setNewPost({});
           }}
         />
       </form>
