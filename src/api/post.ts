@@ -5,7 +5,7 @@ import { POST_URL, USER_ID } from '@constants/post';
 export const fetchPost = async (
   query: SearchKeyWord,
   newPost: PostData | object = {}
-): Promise<PostData[] | object> => {
+): Promise<PostData[]> => {
   try {
     const filteredQuery = filterQuery(query);
     const searchParams = new URLSearchParams(filteredQuery).toString();
