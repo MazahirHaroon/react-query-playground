@@ -74,6 +74,40 @@ http://localhost:5173/
 
 ---
 
+## Folder Structure
+
+```graphql
+react-query-playground/
+├── src/
+│   ├── App.tsx
+│   ├── index.css
+│   ├── main.tsx
+│   ├── utils.ts
+│   ├── api/
+│   │   └── post.ts
+│   ├── components/
+│   │   ├── index.tsx
+│   │   ├── Form/
+│   │   │   ├── ... Form components
+│   │   ├── Post/
+│   │   │   ├── ... Form components
+│   │   ├── ...Other UI Components
+│   ├── constants/
+│   │   └── post.ts
+│   ├── hooks/
+│   │   └── usePostData.tsx
+│   ├── interfaces/
+│   │   └── post.ts
+│   ├── pages/
+│   │   └── Post/
+│   │       ├── content.tsx
+│   │       ├── index.css
+│   │       ├── index.tsx
+│   │       └── options.tsx
+```
+
+---
+
 ### **License**
 
 This project is licensed under the **MIT License** – feel free to use, modify, and experiment with it.
