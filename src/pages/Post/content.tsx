@@ -34,9 +34,7 @@ const Content = ({
         {isPending ? (
           <Loading />
         ) : posts && posts?.length > 0 ? (
-          <PostList>
-            <PostItem posts={posts} />
-          </PostList>
+          <PostList posts={posts} />
         ) : (
           <h2 className='home-secondary-title'>{`Sorry, we don't have any post with for the ID: ${searchKeyword.userId}`}</h2>
         )}
