@@ -3,18 +3,26 @@
     justify-content: center;
     background-color: var(--clr-primary-light);
     min-height: 100vh;
+    border: 2px solid green;
+    align-items: center;
+    gap: 1em;
 }
 
-.content {
+.options {
     display: flex;
-    background-color: var(--clr-light-background);
     flex-direction: column;
+    height: 75vh;
     padding: 2em;
     gap: 1em;
     width: 40%;
     min-width: 500px;
     margin: 2em 0;
     border-radius: 50px;
+}
+
+
+.options {
+    color: var(--clr-light-background);
 }
 
 .home-title {
@@ -36,21 +44,21 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background-color: var(--clr-light-background);
     margin: 0 auto;
+    padding: 1em;
     width: 75%;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .input-container {
-    margin-bottom: 1em;
-    border: 2em solid var(--clr-light-background);
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    margin-top: 1em;
 }
 
 .label {
     color: var(--clr-primary-dark);
     font-weight: bold;
     display: block;
-    margin-bottom: 0.1em;
 }
 
 .input-field {
@@ -87,12 +95,52 @@ primary-button:disabled {
     opacity: 0.35;
 }
 
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    width: 40%;
+    min-width: 500px;
+    border-radius: 50px;
+    height: 75vh;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 2em;
+    background-color: var(--clr-light-background);
+}
+
 .post-list {
     display: flex;
     flex-direction: column;
-    height: 50vh;
-    overflow: scroll;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    gap: 1em;
+    overflow-y: auto;
+    height: 75vh;
+    scroll-behavior: smooth;
     padding: 1em;
+}
+
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+.loading-container > h2 {
+    padding: 1em;
+}
+
+.post-item {
+    padding: 1em;
+}
+
+.post-item > * {
+    margin-bottom: 0.5em;;
+}
+
+.post-ids {
+    display: inline-block;
+    margin-right: 1em;
+    margin-bottom: 0.1em;
 }
